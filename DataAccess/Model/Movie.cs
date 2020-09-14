@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Model
 {
-    public class Movie
+    public class Movie : IEntity
     {
         [Key]
-        public int MovieId { get; set; }
+        public int Id { get; set; }
 
         public string Title { get; set; }
 
@@ -23,6 +24,7 @@ namespace DataAccess.Model
 
         public string Synopsis { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime Year { get; set; }
     }
 }

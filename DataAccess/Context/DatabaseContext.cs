@@ -13,6 +13,11 @@ namespace DataAccess.Context
         : base(options)
         { }
 
+        public DatabaseContext()
+        {
+
+        }
+
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Genre> Genre { get; set; }
 
