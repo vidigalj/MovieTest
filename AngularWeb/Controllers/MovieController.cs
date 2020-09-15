@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AngularWeb.Business;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,12 @@ namespace AngularWeb.Controllers
 {
     public class MovieController : Controller
     {
+        private ApiService apiService; 
         // GET: MovieController
         public ActionResult Index()
         {
-            return View();
+            var movies = apiService.GetAllMovies().Result;
+            return View(movies);
         }
 
         // GET: MovieController/Details/5

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("Api/[controller]")]
     [ApiController]
     public class ApiMovieController : ApiController<Movie, MovieRepository>
     {

@@ -27,21 +27,22 @@ namespace API
             Configuration = configuration;
         }
 
+
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddJsonOptions(o =>
-            {
-                o.JsonSerializerOptions.PropertyNamingPolicy = null;
-                o.JsonSerializerOptions.DictionaryKeyPolicy = null;
-            });
+            services.AddMvc();
+                //.AddJsonOptions(o => 
+            //{
+            //    o.JsonSerializerOptions.PropertyNamingPolicy = null;
+            //    o.JsonSerializerOptions.DictionaryKeyPolicy = null;
+            //});
 
             services.AddEntityFrameworkSqlServer()
                     .AddDbContext<DatabaseContext>(options => options.UseSqlServer("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=MovieTest;Persist Security Info=True;User ID=MovieTest_User;Password=S73f4n1n1!@2020"));
-
-
 
             services.AddScoped<MovieRepository>();
             services.AddScoped<GenreRepository>();

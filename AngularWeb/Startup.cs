@@ -38,6 +38,7 @@ namespace AngularWeb
             {
                 app.UseExceptionHandler("/Error");
             }
+            
 
             app.UseStaticFiles();
             if (!env.IsDevelopment())

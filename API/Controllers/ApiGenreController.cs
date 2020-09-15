@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("Api/[controller]")]
     [ApiController]
     public class ApiGenreController : ApiController<Genre, GenreRepository>
     {

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("Api/[controller]")]
 
     public abstract class ApiController<TEntity, TRepository> : ControllerBase
         where TEntity : class, IEntity
