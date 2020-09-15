@@ -13,9 +13,11 @@ namespace DataAccess.Model
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
-        public int Director { get; set; }
+        [Required]
+        public string Director { get; set; }
 
         public int GenreId { get; set; }
 
@@ -24,7 +26,6 @@ namespace DataAccess.Model
 
         public string Synopsis { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime Year { get; set; }
+        public int Year { get; set; }
     }
 }
