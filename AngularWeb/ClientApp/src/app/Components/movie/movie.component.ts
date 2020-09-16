@@ -10,7 +10,7 @@ import { movies } from '../../Models/placeholder.model';
 /** Movie component*/
 export class MovieComponent implements OnInit {
 
-  movies = new movies;
+  movies: movies[];
 
   constructor(private movieService: MovieService) {
 
@@ -20,7 +20,7 @@ export class MovieComponent implements OnInit {
   }
 
   listMovies() {
-    this.movieService.listMovies().subscribe((movies: movies) => {
+    this.movieService.listMovies().subscribe((movies: movies[]) => {
       this.movies = movies;
     }, error => {
       console.log('Erro!', error)

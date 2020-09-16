@@ -3,7 +3,7 @@ export class movies {
   public Title: string;
   public Director: string;
   public GenreId: number;
-  public Genre: genres;
+  public Genre: string;
   public Synopsis: string;
   public Year: number;
 }
