@@ -35,12 +35,12 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-                //.AddJsonOptions(o => 
+            //.AddJsonOptions(o => 
             //{
             //    o.JsonSerializerOptions.PropertyNamingPolicy = null;
             //    o.JsonSerializerOptions.DictionaryKeyPolicy = null;
             //});
-
+            services.AddCors();
             services.AddEntityFrameworkSqlServer()
                     .AddDbContext<DatabaseContext>(options => options.UseSqlServer("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=MovieTest;Persist Security Info=True;User ID=MovieTest_User;Password=S73f4n1n1!@2020"));
 
@@ -60,6 +60,9 @@ namespace API
             {
                 app.UseHsts();
             }
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

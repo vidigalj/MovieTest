@@ -8,8 +8,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { MovieService } from './movie.service';
-import { MovieComponent } from './movie/movie.component';
+import { MovieService } from './Services/movie.service';
+import { MovieComponent } from './Components/movie/movie.component';
 
 
 @NgModule({
