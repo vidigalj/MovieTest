@@ -1,0 +1,18 @@
+<h3>Insert Movie</h3>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" name="title" [(movie.title)] class="form-control" placeholder="Title" />
+    <label>Director</label>
+    <input type="text" name="director" [(movie.director)] class="form-control" placeholder="Director" />
+    <label>Genre</label>
+    <input type="text" name="genre" [(movie.genre)] class="form-control" placeholder="Genre" />
+    <label>Synopsis</label>
+    <input type="text" name="synopsis" [(movie.title)] class="form-control" placeholder="Title" />
+    <label>Year</label>
+    <input type="text" name="date" [(movie.year)] class="form-control" placeholder="Year" />
+  </div>
+
+  <button class="btn-primary">Save</button>
+</form>

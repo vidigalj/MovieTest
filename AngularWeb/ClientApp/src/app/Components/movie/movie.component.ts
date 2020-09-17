@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../Services/movie.service';
-import { movies } from '../../Models/placeholder.model';
+import { movie } from '../../Models/movie.model';
+import { MovieDataService } from '../../Services/movie-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie',
@@ -10,20 +12,20 @@ import { movies } from '../../Models/placeholder.model';
 /** Movie component*/
 export class MovieComponent implements OnInit {
 
-  movies: movies[];
+  movies: Observable<any>;
 
-  constructor(private movieService: MovieService) {
+  constructor(private _movieService: MovieService,
+              private _movieDataService: MovieDataService) {
 
   }
   ngOnInit() {
-    this.listMovies();
+    this.movies = this._movieService.listMovies();
+  }
+  delete(key: number) {
+    this._movieService.delete(key);
+  }
+  edit(movie: movie, key: number) {
+    this._movieDataService.getMovie(movie, key);
   }
 
-  listMovies() {
-    this.movieService.listMovies().subscribe((movies: movies[]) => {
-      this.movies = movies;
-    }, error => {
-      console.log('Erro!', error)
-    })
-  }
 }

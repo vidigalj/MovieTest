@@ -1,4 +1,4 @@
-export class movies {
+export class movie {
   public Id: number;
   public Title: string;
   public Director: string;
@@ -6,10 +6,4 @@ export class movies {
   public Genre: string;
   public Synopsis: string;
   public Year: number;
-}
-
-export class genres {
-  public Id: number;
-  public Description: string;
-  public Active: boolean;
 }

@@ -1,21 +1,24 @@
 <h2>Registered movies: </h2>
 <hr />
 
-<table>
-  <tr>
-    <th>#Id</th>
+<table class="table table-hover table-striped">
+  <thead>
     <th>Title</th>
-    <th>Director</th>
-    <th>GenreId</th>
-    <th>Synopsis</th>
+    <th>Genre</th>
     <th>Year</th>
-  </tr>
-  <tr  *ngFor="let movie of movies">
-    <td>{{movie.id}}</td>
-    <td>{{movie.title}}</td>
-    <td>{{movie.director}}</td>
-    <td>{{movie.genreId}}</td>
-    <td>{{movie.synopsis}}</td>
-    <td>{{movie.year}}</td>
-  </tr>
+    <th>Actions</th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let movie of movies | async">
+      <td>{{movie.title}}</td>
+      <td>{{movie.genreId}}</td>
+      <td>{{movie.year}}</td>
+      <td>
+        <button class="btn btn-info" (click)="view(movie.id)">View</button>
+        <button class="btn btn-info ml-2" (click)="edit(movie, movie.id)">Edit</button>
+        <button class="btn btn-danger ml-2" (click)="delete(movie.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
