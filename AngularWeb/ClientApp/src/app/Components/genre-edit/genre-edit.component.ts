@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { genre } from '../../Models/genre.model';
 import { GenreService } from '../../Services/genre.service';
 import { GenreDataService } from '../../Services/genre-data.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
     selector: 'app-genre-edit',
@@ -16,7 +17,8 @@ export class GenreEditComponent {
   key: string = '';
 
   constructor(private _genreService: GenreService,
-    private _genreDataService: GenreDataService) {
+              private _genreDataService: GenreDataService,
+              private _route: ActivatedRoute) {
 
   }
   ngOnInit() {
@@ -26,7 +28,7 @@ export class GenreEditComponent {
         this.genre = new genre();
         this.genre.Description = data.genre.Description;
         this.genre.Active = data.genre.Active;
-        this.genre.Id = data.key;
+        this.genre.Id = data.genre.Id;
       }
     })
   }

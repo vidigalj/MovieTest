@@ -3,6 +3,8 @@ import { MovieService } from '../../Services/movie.service';
 import { movie } from '../../Models/movie.model';
 import { MovieDataService } from '../../Services/movie-data.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-movie',
@@ -15,7 +17,8 @@ export class MovieComponent implements OnInit {
   movies: Observable<any>;
 
   constructor(private _movieService: MovieService,
-              private _movieDataService: MovieDataService) {
+              private _movieDataService: MovieDataService,
+              private _router: Router) {
 
   }
   ngOnInit() {
@@ -27,5 +30,8 @@ export class MovieComponent implements OnInit {
   edit(movie: movie, key: number) {
     this._movieDataService.getMovie(movie, key);
   }
-
+  view(movie: movie) {
+    this._router.navigate(['/movie-edit', movie.Id]);
+    //this._movieService.getMovieById(key);
+  }
 }

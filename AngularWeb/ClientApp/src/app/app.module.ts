@@ -2,36 +2,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MovieService } from './Services/movie.service';
 import { MovieComponent } from './Components/movie/movie.component';
+import { GenreService } from './Services/genre.service';
+import { GenreComponent } from './Components/genre/genre.component';
+import { GenreEditComponent } from './Components/genre-edit/genre-edit.component';
+import { MovieEditComponent } from './Components/movie-edit/movie-edit.component';
+
+const routes: Routes = [
+  { path: '', component: MovieComponent, pathMatch: 'full' },
+  { path: 'movie', component: MovieComponent },
+  { path: 'genre', component: GenreComponent }
+]
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
-    MovieComponent
+    MovieComponent,
+    GenreComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ])
+    RouterModule.forRoot(routes)
   ],
-  providers: [HttpClientModule, MovieService],
-  bootstrap: [AppComponent]
+  providers: [HttpClientModule, MovieService, GenreService],
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }

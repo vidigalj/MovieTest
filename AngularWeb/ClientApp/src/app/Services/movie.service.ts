@@ -23,4 +23,7 @@ export class MovieService {
   delete(key: number) {
     this._http.delete(`http://localhost:57414/api/ApiMovie/${key}`);
   }
+  getMovieById(key: number) {
+    this._http.get(`http://localhost:57414/api/ApiMovie/${key}`);
+  }
 }

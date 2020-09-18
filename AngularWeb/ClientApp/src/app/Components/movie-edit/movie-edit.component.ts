@@ -28,7 +28,7 @@ export class MovieEditComponent implements OnInit{
         this.movie.Synopsis = data.movie.Synopsis;
         this.movie.Title = data.movie.Title;
         this.movie.Year = data.movie.Year;
-        this.movie.Id = data.key;
+        this.movie.Id = data.movie.Id;
       }
     })
   }
